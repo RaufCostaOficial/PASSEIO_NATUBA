@@ -1,1 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursão Natuba | Rauf Costa Turismo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a148c; /* Roxo uva profundo */
+            --secondary-color: #2e7d32; /* Verde parreiral */
+            --accent-color: #ffeb3b; /* Amarelo vibrante */
+            --whatsapp-color: #25d366;
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --bg-light: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Navbar / Logo */
+        nav {
+            background: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            height: 80px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('images/hero_new.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 7vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            max-width: 800px;
+        }
+
+        .cta-main {
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .cta-main:hover {
+            transform: translateY(-3px);
+            background-color: #128c7e;
+        }
+
+        /* Destaques Rápidos */
+        .highlights-bar {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .h-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .h-item i { color: var(--accent-color); }
+
+        /* Seções */
+        .section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+
+        /* Roteiro / Timeline */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary-color);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .time {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 90px;
+            text-align: center;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* O Que Está Incluso */
+        .incluso-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .incluso-card {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px dashed var(--secondary-color);
+        }
+
+        .incluso-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Cardápio Chá da Tarde */
+        .menu-container {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .menu-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px;
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .menu-list {
+            flex: 2;
+            min-width: 300px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-category h4 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid #eee;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .menu-category ul { list-style: none; }
+        .menu-category li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .menu-category li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Investimento */
+        .price-section {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 30px;
+            margin: 40px 20px;
+        }
+
+        .price-value {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin: 10px 0;
+        }
+
+        .lunch-warning {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item { flex-direction: column; gap: 10px; }
+            .time { width: 100%; }
+            .menu-header, .menu-list { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5583986171121?text=Olá! Quero garantir minha vaga para o passeio em Natuba!" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav>
+       
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        
+    </section>
+
+    <!-- Barra de Destaques -->
+    <div class="highlights-bar">
+        <div class="h-item"><i class="fas fa-calendar-alt"></i> 27 de Setembro (Domingo)</div>
+        <div class="h-item"><i class="fas fa-clock"></i> Saída: 05:15h</div>
+        <div class="h-item"><i class="fas fa-map-marker-alt"></i> Posto do Almeidão (JP)</div>
+    </div>
+
+    <!-- O Que Está Incluso -->
+    <section class="section">
+        <h2 class="section-title">O Que Está Incluso</h2>
+        <div class="incluso-grid">
+            <div class="incluso-card">
+                <i class="fas fa-bus"></i>
+                <h3>Transporte</h3>
+                <p>Micro-ônibus confortável (Ida e Volta).</p>
+            </div>
+            <div class="incluso-card">
+                <i class="fas fa-truck-monster"></i>
+                <h3>Aventura Jeep</h3>
+                <p>Realização das rotas locais em Natuba.</p>
+            </div>
+            <div class="incluso-card">
+                <i class="fas fa-coffee"></i>
+                <h3>Degustação</h3>
+                <p>Lanche especial e Chá da Tarde no Parreiral.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roteiro Detalhado -->
+    <section class="section" style="background: #fff; max-width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+            <h2 class="section-title">Roteiro da Experiência</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">10:00h</div>
+                    <div class="timeline-content">
+                        <h3>Início da Jornada</h3>
+                        <p>Encontro na Igreja Matriz (Centro). Visita ao Parque Ambiental, Salão do Turismo Cultural e Artesanato da Fibra da Banana.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">Manhã</div>
+                    <div class="timeline-content">
+                        <h3>Natureza e Refresco</h3>
+                        <p>Caminhada leve de 300 metros até a deslumbrante Cachoeira da Bica Grande.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">12:00h</div>
+                    <div class="timeline-content">
+                        <h3>Almoço Regional</h3>
+                        <p>Comida típica regional em restaurante local (Almoço à parte).</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">13:30h</div>
+                    <div class="timeline-content">
+                        <h3>Momento Doce</h3>
+                        <p>Degustação dos famosos Doces Caseiros da Tia Zita.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">14:30h</div>
+                    <div class="timeline-content">
+                        <h3>Experiência Rural Natuva</h3>
+                        <p>Visita ao Parreiral, Chá da Tarde, degustação de vinhos/geleias e a tradicional <strong>Pisa da Uva</strong>.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">16:30h</div>
+                    <div class="timeline-content">
+                        <h3>Vista Panorâmica</h3>
+                        <p>Visita ao Mirante para contemplar a beleza da região.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">17:00h</div>
+                    <div class="timeline-content">
+                        <h3>Encerramento</h3>
+                        <p>Início do retorno para João Pessoa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardápio Chá da Tarde -->
+    <section class="section">
+        <h2 class="section-title">Cardápio do Chá da Tarde</h2>
+        <div class="menu-container">
+            <div class="menu-header">
+                <i class="fas fa-utensils fa-3x" style="margin-bottom: 20px; color: var(--accent-color);"></i>
+                <h3>Gastronomia Afetiva</h3>
+                <p>Sabores regionais preparados com carinho para você.</p>
+            </div>
+            <div class="menu-list">
+                <div class="menu-category">
+                    <h4><i class="fas fa-mug-hot"></i> Bebidas</h4>
+                    <ul>
+                        <li>Café e Leite</li>
+                        <li>Chá de Laranja</li>
+                        <li>Suco de Uva Isabel</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h4><i class="fas fa-bread-slice"></i> Salgados</h4>
+                    <ul>
+                        <li>Farofa de cuscuz recheada</li>
+                        <li>Pães e Torradas variadas</li>
+                        <li>Tapioca feita na hora</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h4><i class="fas fa-birthday-cake"></i> Doces e Típicos</h4>
+                    <ul>
+                        <li>Munguzá</li>
+                        <li>Bolo de Rolo</li>
+                        <li>Frutas da estação</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investimento -->
+    <section class="price-section">
+        <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 2px;">Valor por Pessoa</p>
+        <div class="price-value">R$ 279,90</div>
+        <p>Pagamento via PIX ou Cartão</p>
+        <div class="lunch-warning">
+            <i class="fas fa-info-circle"></i> Almoço não incluso (Média de R$ 30,00)
+        </div>
+        <div style="margin-top: 40px;">
+            <a href="https://wa.me/5583986171121?text=Olá! Quero garantir minha vaga para o passeio em Natuba!" class="cta-main" style="background: white; color: var(--primary-color);">
+                <i class="fab fa-whatsapp"></i> RESERVAR MINHA VAGA AGORA
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        
+        <p style="font-size: 1.2rem; font-weight: 700; color: var(--accent-color);">Rauf Costa Turismo</p>
+        <p style="margin-top: 10px; opacity: 0.7;">Organização Profissional de Viagens e Excursões.</p>
+        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Todos os direitos reservados. Natuba - PB.</p>
+    </footer>
+
+</body>
+</html>
 
