@@ -1,25 +1,254 @@
-<!-- Banner em Largura Total -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursão Natuba – PB | Rauf Costa Turismo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a148c;
+            --secondary-color: #2e7d32;
+            --accent-color: #ffeb3b;
+            --whatsapp-color: #25d366;
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --bg-light: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .hero-banner {
+            width: 100%;
+            display: block;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .highlights-bar {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .h-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .h-item i { color: var(--accent-color); }
+
+        .title-section {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .title-section h1 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            color: var(--primary-color);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .title-section p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: #444;
+            max-width: 850px;
+            margin: 0 auto 30px;
+            font-weight: 500;
+        }
+
+        .cta-main {
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .cta-main:hover {
+            transform: translateY(-3px);
+            background-color: #128c7e;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            margin-bottom: 35px;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 5px;
+            background: var(--secondary-color);
+            margin: 12px auto 0;
+        }
+
+        .natuba-desc {
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .natuba-desc p {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .timeline-item {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary-color);
+            display: flex;
+            gap: 20px;
+        }
+
+        .time {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .price-section {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .price-value {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-color);
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            z-index: 1000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/5583986171121?text=Olá! Quero garantir minha vaga para o passeio em Natuba!" class="whatsapp-float" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
 <div class="hero-banner">
-    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Excursão Natuba Paraíba">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Excursão Natuba">
 </div>
 
-<!-- Galeria -->
-<section class="section" style="background: #fff; max-width: 100%;">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-        <h2 class="section-title">Galeria de Fotos Reais</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b" alt="Parreirais e uvas">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Cachoeira natureza">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e" alt="Turismo rural experiência">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Rio e natureza">
-            </div>
-        </div>
-    </div>
+<section class="title-section">
+<h1>Excursão Natuba – PB</h1>
+<p>A "Terra das Uvas" espera por você para um dia inesquecível.</p>
 </section>
+
+<section class="section natuba-desc">
+<h2 class="section-title">Conheça Natuba</h2>
+<p>Natureza, cachoeiras e experiência rural autêntica.</p>
+</section>
+
+<section class="section">
+<h2 class="section-title">Galeria</h2>
+<div class="gallery-grid">
+<img src="https://images.unsplash.com/photo-1560493676-04071c5f467b">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+</div>
+</section>
+
+<footer>
+<p>Rauf Costa Turismo</p>
+</footer>
+
+</body>
+</html>
